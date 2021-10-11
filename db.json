@@ -1,0 +1,14 @@
+{
+  "admin": [
+    {
+      "accessToken": "eyJhbGciOiJIUzI1NiJ9.YWRtaW4xQGFkbWluLmNvbTEyMzQ1Ng.IcSpXonKAKx9urAQM0a69Ns9k5KiATjBOg390Fh_tH8",
+      "name": "Admin",
+      "email": "admin1@admin.com"
+    },
+    {
+      "accessToken": "eyJhbGciOiJIUzI1NiJ9.YWRtaW4xQGFkbWluLmNvbTEyMmnmn1Ng.IcSpXonKAKx9urAQM0a69Ns9k5KiATjBOg390Fh_tH8",
+      "name": "Ad4748484",
+      "email": "ad1@admin.com"
+    }
+  ]
+}
