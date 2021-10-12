@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 
 import {Paths} from "./utils/paths";
-import LogIn from "./pages/authentication/LogIn";
+import LogIn from "./pages/LogIn";
 import Home from "./pages/Home";
 
 function App() {

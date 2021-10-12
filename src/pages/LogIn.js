@@ -3,9 +3,9 @@ import {Link, useHistory} from "react-router-dom";
 import {useFormik} from 'formik';
 import {useDispatch} from 'react-redux';
 
-import {loginInitialValues, loginValidationSchema} from "../../utils/schemas";
-import {login} from "../../redux/actions/auth";
-import {Paths} from "../../utils/paths";
+import {loginInitialValues, loginValidationSchema} from "../utils/schemas";
+import {login} from "../redux/actions/auth";
+import {Paths} from "../utils/paths";
 
 const LogIn = () => {
 
