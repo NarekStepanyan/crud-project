@@ -3,11 +3,11 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    NavLink,
 } from "react-router-dom";
 
 import {Paths} from "./utils/paths";
 import LogIn from "./pages/authentication/LogIn";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -16,6 +16,9 @@ function App() {
             <Switch>
                 <Route exact path={Paths.logIn}>
                     <LogIn />
+                </Route>
+                <Route path={Paths.home}>
+                    <Home />
                 </Route>
             </Switch>
         </Router>
