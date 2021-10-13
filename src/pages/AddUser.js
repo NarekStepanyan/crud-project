@@ -23,18 +23,30 @@ const AddUser = () => {
         onSubmit: formikSubmit
     });
 
+    const {
+        handleSubmit,
+        handleChange,
+        handleBlur,
+        touched,
+        dirty,
+        errors
+    } = formik;
+
     return(
         <>
-            <form className="form-group" onSubmit={formik.handleSubmit}>
+            <form className="form-group" onSubmit={handleSubmit}>
                 <input
                     className="form-control form-control-lgform-control form-control-sm"
                     id="firstName"
                     name="firstName"
                     type="text"
                     placeholder="First name"
-                    onChange={formik.handleChange}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
                     value={formik.values.firstName}
                 />
+
+                {touched.firstName && errors.firstName &&  <div> {errors.firstName}</div>}
                 <br />
                 <input
                     className="form-control form-control-lgform-control form-control-sm"
@@ -43,8 +55,10 @@ const AddUser = () => {
                     type="text"
                     placeholder="Last name"
                     onChange={formik.handleChange}
+                    onBlur={handleBlur}
                     value={formik.values.lastName}
                 />
+                {touched.lastName && errors.lastName &&  <div> {errors.lastName}</div>}
                 <br />
                 <input
                     className="form-control form-control-lgform-control form-control-sm"

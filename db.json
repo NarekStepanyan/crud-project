@@ -71,6 +71,60 @@
       "password": "123456",
       "confirmPassword": "123456",
       "id": 7
+    },
+    {
+      "firstName": "User",
+      "lastName": "newUSER",
+      "age": "212",
+      "email": "st000@yopmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 8
+    },
+    {
+      "firstName": "o",
+      "lastName": "o",
+      "age": "7",
+      "email": "o@o.o",
+      "password": "7777777777",
+      "confirmPassword": "7777777777777",
+      "id": 9
+    },
+    {
+      "firstName": "o",
+      "lastName": "o",
+      "age": "7",
+      "email": "o@o.o",
+      "password": "7777777777",
+      "confirmPassword": "7777777777777",
+      "id": 10
+    },
+    {
+      "firstName": "o",
+      "lastName": "o",
+      "age": "7",
+      "email": "o@o.o",
+      "password": "7777777777",
+      "confirmPassword": "7777777777777",
+      "id": 11
+    },
+    {
+      "firstName": "Narek",
+      "lastName": "Narek",
+      "age": "988",
+      "email": "nar999@yopmail.com",
+      "password": "978978789456456",
+      "confirmPassword": "123123123123",
+      "id": 12
+    },
+    {
+      "firstName": "Narek",
+      "lastName": "Stepanyan11111",
+      "age": "78",
+      "email": "narst@yopmail.com",
+      "password": "45645456",
+      "confirmPassword": "4654564",
+      "id": 13
     }
   ]
 }

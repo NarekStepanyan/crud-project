@@ -14,6 +14,19 @@ export function getUsers() {
     };
 }
 
+export function getSingleUser(id) {
+    return async function (dispatch) {
+        dispatch({type: TYPES.GET_SINGLE_USER_REQUEST});
+        try {
+            const result = await publicApi.get(`${endPoints.users}/${id}`);
+            console.log("result", result)
+            dispatch({type: TYPES.GET_SINGLE_USER_SUCCESS, payload: result});
+        } catch (e) {
+            dispatch({type: TYPES.GET_SINGLE_USER_FAILURE, payload: e});
+        }
+    };
+}
+
 export function addUser(data) {
     return async function (dispatch) {
         dispatch({type: TYPES.ADD_USER_REQUEST});
@@ -23,6 +36,19 @@ export function addUser(data) {
             dispatch({type: TYPES.ADD_USER_SUCCESS, payload: result});
         } catch (e) {
             dispatch({type: TYPES.ADD_USER_FAILURE, payload: e});
+        }
+    };
+}
+
+export function editUser(userId, data) {
+    return async function (dispatch) {
+        dispatch({type: TYPES.EDIT_USER_REQUEST});
+        try {
+            const result = await publicApi.put(`${endPoints.users}/${userId}`, data);
+            console.log(result)
+            dispatch({type: TYPES.EDIT_USER_SUCCESS, payload: result});
+        } catch (e) {
+            dispatch({type: TYPES.EDIT_USER_FAILURE, payload: e});
         }
     };
 }

@@ -19,6 +19,4 @@ export const editUserInitialValues = {
     lastName: '',
     age: '',
     email: '',
-    password: '',
-    confirmPassword: "",
 };

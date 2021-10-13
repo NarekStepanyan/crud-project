@@ -1,22 +1,27 @@
 import {useEffect} from "react";
 import {useSelector, useDispatch} from "react-redux";
 import {useFormik} from "formik";
+import {useRouteMatch, useHistory} from "react-router-dom";
+
 import {editUserInitialValues, editUserValidationSchema} from "../utils/schemas";
 import {getUsers} from "../redux/actions/users";
 
-const EditUser = ({userid}) => {
+const EditUser = () => {
 
     const dispatch = useDispatch();
+    const match = useRouteMatch();
 
-    const userCurrentData = useSelector(state => state.usersReducer.getUsers.data.data)[userid-1];
+    const {id} = match.params;
+    const userCurrentData = useSelector(state => state.usersReducer.getUsers.data.data)[id-1];
     console.log("userCurrentData", userCurrentData)
+    console.log("id", id)
     const formik = useFormik({
         initialValues: editUserInitialValues,
         validationSchema: editUserValidationSchema,
         // onSubmit: formikSubmit
     });
 
-    useEffect(() => dispatch(getUsers()), [])
+    useEffect(dispatch(getUsers()), [])
 
     useEffect(() => {
         if(userCurrentData) {
@@ -24,6 +29,7 @@ const EditUser = ({userid}) => {
             formik.setFieldValue("lastName", userCurrentData.lastName);
             formik.setFieldValue("email", userCurrentData.email);
             formik.setFieldValue("age", userCurrentData.age);
+            console.log("I am EditUser")
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [userCurrentData]);

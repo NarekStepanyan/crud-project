@@ -14,7 +14,7 @@ const Home = () => {
 
             <Switch>
                 <PrivateRoute children={Users} exact path={Paths.users} />
-                <PrivateRoute children={EditUser} exact path={Paths.editUser} />
+                {/*<PrivateRoute children={EditUser} exact path={Paths.editUser} />*/}
             </Switch>
         </>
     );
