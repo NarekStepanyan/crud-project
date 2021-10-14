@@ -9,6 +9,9 @@ const users = {
     getUsers: {...initialState, data: {data:[]}},
     addUser: {...initialState, data: {}},
     getSingleUser: {...initialState, data: {data:{}}},
+    editUser: {...initialState, data: {}},
+    deleteUser: {...initialState, data: {}},
+
 }
 export default function usersReducer(state = users, action) {
     switch (action.type) {
@@ -91,6 +94,62 @@ export default function usersReducer(state = users, action) {
                 ...state,
                 addUser: {
                     ...users.addUser,
+                    loading: null,
+                    data: null,
+                    error: action.payload
+                }
+            }
+        case TYPES.EDIT_USER_REQUEST:
+            return {
+                ...state,
+                editUser: {
+                    ...users.editUser,
+                    loading: true
+                }
+            }
+        case TYPES.EDIT_USER_SUCCESS:
+            return {
+                ...state,
+                editUser: {
+                    ...users.editUser,
+                    loading: null,
+                    data: action.payload,
+                    error: null
+                }
+            }
+        case TYPES.EDIT_USER_FAILURE:
+            return {
+                ...state,
+                editUser: {
+                    ...users.editUser,
+                    loading: null,
+                    data: null,
+                    error: action.payload
+                }
+            }
+        case TYPES.DELETE_USER_REQUEST:
+            return {
+                ...state,
+                deleteUser: {
+                    ...users.deleteUser,
+                    loading: true
+                }
+            }
+        case TYPES.DELETE_USER_SUCCESS:
+            return {
+                ...state,
+                deleteUser: {
+                    ...users.deleteUser,
+                    loading: null,
+                    data: action.payload,
+                    error: null
+                }
+            }
+        case TYPES.DELETE_USER_FAILURE:
+            return {
+                ...state,
+                deleteUser: {
+                    ...users.deleteUser,
                     loading: null,
                     data: null,
                     error: action.payload

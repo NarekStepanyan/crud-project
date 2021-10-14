@@ -9,7 +9,6 @@ export function login(data) {
         dispatch({type: TYPES.LOGIN_ADMIN_REQUEST});
         try {
             const result = await publicApi.get(endPoints.admin);
-            console.log(result)
             dispatch({type: TYPES.LOGIN_ADMIN_SUCCESS, payload: true});
             const accessToken = findToken(data.email, data.password, result);
             (data.checked? Storage.set('accessToken', accessToken) : Storage.set('accessToken', accessToken, "sessionStorage"));

@@ -13,111 +13,6 @@
   ],
   "users": [
     {
-      "id": 1,
-      "firstName": "WWWWW",
-      "lastName": "EEEEE",
-      "email": "esiminch@mail.com",
-      "age": 999,
-      "password": "111111"
-    },
-    {
-      "id": 2,
-      "firstName": "AAAA",
-      "lastName": "EOOOO",
-      "email": "euuuuu@mail.com",
-      "age": 97,
-      "password": "123456"
-    },
-    {
-      "id": 3,
-      "firstName": "MMMMM",
-      "lastName": "RRRRR",
-      "email": "ooooou@mail.com",
-      "age": 88,
-      "password": "456789"
-    },
-    {
-      "firstName": "NNNNNNNN",
-      "lastName": "Stepan",
-      "age": "5",
-      "email": "nar999@yopmail.com",
-      "password": "123456",
-      "confirmPassword": "123456",
-      "id": 4
-    },
-    {
-      "firstName": "Karen",
-      "lastName": "Stepanya",
-      "age": "988",
-      "email": "narstep@yopmail.com",
-      "password": "123456",
-      "confirmPassword": "123456",
-      "id": 5
-    },
-    {
-      "firstName": "Stepan1111",
-      "lastName": "Stepanyan",
-      "age": "7777",
-      "email": "narst@yopmail.com",
-      "password": "123789",
-      "confirmPassword": "123789",
-      "id": 6
-    },
-    {
-      "firstName": "Narek",
-      "lastName": "Stepanyan11111",
-      "age": "555555",
-      "email": "nar999@yopmail.com",
-      "password": "123456",
-      "confirmPassword": "123456",
-      "id": 7
-    },
-    {
-      "firstName": "User",
-      "lastName": "newUSER",
-      "age": "212",
-      "email": "st000@yopmail.com",
-      "password": "123456",
-      "confirmPassword": "123456",
-      "id": 8
-    },
-    {
-      "firstName": "o",
-      "lastName": "o",
-      "age": "7",
-      "email": "o@o.o",
-      "password": "7777777777",
-      "confirmPassword": "7777777777777",
-      "id": 9
-    },
-    {
-      "firstName": "o",
-      "lastName": "o",
-      "age": "7",
-      "email": "o@o.o",
-      "password": "7777777777",
-      "confirmPassword": "7777777777777",
-      "id": 10
-    },
-    {
-      "firstName": "o",
-      "lastName": "o",
-      "age": "7",
-      "email": "o@o.o",
-      "password": "7777777777",
-      "confirmPassword": "7777777777777",
-      "id": 11
-    },
-    {
-      "firstName": "Narek",
-      "lastName": "Narek",
-      "age": "988",
-      "email": "nar999@yopmail.com",
-      "password": "978978789456456",
-      "confirmPassword": "123123123123",
-      "id": 12
-    },
-    {
       "firstName": "Narek",
       "lastName": "Stepanyan11111",
       "age": "78",
@@ -125,6 +20,24 @@
       "password": "45645456",
       "confirmPassword": "4654564",
       "id": 13
+    },
+    {
+      "firstName": "Narek",
+      "lastName": "Narek",
+      "age": "44",
+      "email": "nar999@yopmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 14
+    },
+    {
+      "firstName": "Karen",
+      "lastName": "Stepan",
+      "age": "55",
+      "email": "st000@yopmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 15
     }
   ]
 }

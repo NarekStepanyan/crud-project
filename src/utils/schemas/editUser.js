@@ -10,8 +10,6 @@ export const editUserValidationSchema = Yup.object({
         .required('Required'),
     email: Yup.string().email('Invalid email address').required('Required'),
     age: Yup.number().required('Required'),
-    password: Yup.string().required('Required'),
-    confirmPassword: Yup.string().required('Required'),
 })
 
 export const editUserInitialValues = {

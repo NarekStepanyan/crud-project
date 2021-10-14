@@ -1,11 +1,11 @@
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import {useFormik} from 'formik';
 import {useDispatch, useSelector} from 'react-redux';
 import Modal from 'react-modal';
 
 import "../../../App.css";
-import {addUser, getSingleUser, getUsers} from "../../../redux/actions/users";
-import {addUserInitialValues, addUserValidationSchema} from "../../../utils/schemas";
+import {editUser, getSingleUser, getUsers} from "../../../redux/actions/users";
+import {addUserValidationSchema} from "../../../utils/schemas";
 
 Modal.setAppElement('#root');
 
@@ -13,11 +13,10 @@ const EditUser = ({userId}) => {
 
     const dispatch = useDispatch();
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    const userCurrentData = useSelector(state => state.usersReducer.getSingleUser.data)
-    console.log("userCurrentData", userCurrentData)
+    const userCurrentData = useSelector(state => state.usersReducer.getSingleUser.data.data);
 
     const formikSubmit = async () => {
-        await dispatch(addUser(values));
+        await dispatch(editUser(userId, values));
         await dispatch(getUsers());
         resetForm();
         setModalIsOpen(false);
@@ -32,7 +31,7 @@ const EditUser = ({userId}) => {
         values,
         errors
     } = useFormik({
-        initialValues: addUserInitialValues,
+        initialValues: userCurrentData,
         enableReinitialize: true,
         validationSchema: addUserValidationSchema,
         onSubmit: formikSubmit
@@ -43,15 +42,6 @@ const EditUser = ({userId}) => {
         await dispatch(getSingleUser(userId));
     }
 
-    useEffect(() => {
-        if (userCurrentData) {
-            addUserInitialValues.firstName = userCurrentData.firstName
-            addUserInitialValues.lastName = userCurrentData.lastName
-            addUserInitialValues.email = userCurrentData.email
-            addUserInitialValues.age = userCurrentData.age
-        }
-    }, [userCurrentData]);
-    console.log("Usercurrentdata", userCurrentData)
     return (
         <>
             <button className="btn btn-warning" onClick={openOrCloseModal}>EDIT</button>
@@ -68,6 +58,11 @@ const EditUser = ({userId}) => {
                         }
                 }
             >
+                <button onClick={openOrCloseModal} type="button" className="btn btn-close btn-danger topright" aria-label="Close">
+                    <span>&times;</span>
+                </button>
+                <br/>
+
                 <h4>Edit user data</h4>
                 <form className="form-group" onSubmit={handleSubmit}>
                     <input

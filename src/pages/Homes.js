@@ -7,7 +7,7 @@ import AddUser from "../components/user/modals/AddUser";
 import EditUser from "../components/user/modals/EditUser";
 import DeleteUser from "../components/user/modals/DeleteUser";
 
-const Users = () => {
+const Homes = () => {
 
     const dispatch = useDispatch();
     const data = useSelector(state => state.usersReducer.getUsers.data.data);
@@ -35,9 +35,11 @@ const Users = () => {
             <table className="table table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">First name</th>
-                    <th scope="col">Last name</th>
-                    <th scope="col">Email</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Land sqm</th>
+                    <th scope="col">Place sqm</th>
+                    <th scope="col">Bedrooms number</th>
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
@@ -47,4 +49,4 @@ const Users = () => {
     );
 }
 
-export default Users;
+export default Homes;

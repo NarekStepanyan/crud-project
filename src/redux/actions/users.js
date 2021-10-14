@@ -19,7 +19,6 @@ export function getSingleUser(id) {
         dispatch({type: TYPES.GET_SINGLE_USER_REQUEST});
         try {
             const result = await publicApi.get(`${endPoints.users}/${id}`);
-            console.log("result", result)
             dispatch({type: TYPES.GET_SINGLE_USER_SUCCESS, payload: result});
         } catch (e) {
             dispatch({type: TYPES.GET_SINGLE_USER_FAILURE, payload: e});
@@ -32,7 +31,6 @@ export function addUser(data) {
         dispatch({type: TYPES.ADD_USER_REQUEST});
         try {
             const result = await publicApi.post(endPoints.users, data);
-            console.log(result)
             dispatch({type: TYPES.ADD_USER_SUCCESS, payload: result});
         } catch (e) {
             dispatch({type: TYPES.ADD_USER_FAILURE, payload: e});
@@ -45,10 +43,21 @@ export function editUser(userId, data) {
         dispatch({type: TYPES.EDIT_USER_REQUEST});
         try {
             const result = await publicApi.put(`${endPoints.users}/${userId}`, data);
-            console.log(result)
             dispatch({type: TYPES.EDIT_USER_SUCCESS, payload: result});
         } catch (e) {
             dispatch({type: TYPES.EDIT_USER_FAILURE, payload: e});
+        }
+    };
+}
+
+export function deleteUser(userId) {
+    return async function (dispatch) {
+        dispatch({type: TYPES.DELETE_USER_REQUEST});
+        try {
+            const result = await publicApi.delete(`${endPoints.users}/${userId}`);
+            dispatch({type: TYPES.DELETE_USER_SUCCESS, payload: result});
+        } catch (e) {
+            dispatch({type: TYPES.DELETE_USER_FAILURE, payload: e});
         }
     };
 }
