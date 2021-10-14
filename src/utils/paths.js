@@ -4,5 +4,5 @@ export const Paths = {
     forgot: "/forgot",
     home: "/home",
     users: "/home/users",
-    homes: "/homes",
+    homes: "/home/homes",
 };

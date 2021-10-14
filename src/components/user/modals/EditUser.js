@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 
 import "../../../App.css";
 import {editUser, getSingleUser, getUsers} from "../../../redux/actions/users";
-import {addUserValidationSchema} from "../../../utils/schemas";
+import {editUserValidationSchema} from "../../../utils/schemas";
 
 Modal.setAppElement('#root');
 
@@ -33,7 +33,7 @@ const EditUser = ({userId}) => {
     } = useFormik({
         initialValues: userCurrentData,
         enableReinitialize: true,
-        validationSchema: addUserValidationSchema,
+        validationSchema: editUserValidationSchema,
         onSubmit: formikSubmit
     });
 

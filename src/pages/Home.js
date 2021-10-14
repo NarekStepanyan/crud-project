@@ -5,7 +5,7 @@ import PrivateRoute from "../utils/privateRoute";
 import {Paths} from "../utils/paths";
 import LogOut from "../components/LogOut";
 import Users from "./Users";
-import Homes from "./Users";
+import Homes from "./Homes";
 
 const Home = () => {
 
@@ -14,7 +14,10 @@ const Home = () => {
     return(
         <>
             {(location.pathname !== Paths.users)?  <Link to={Paths.users}>
-                <button className="btn btn-success">USERS</button>
+                <button className="btn btn-success m-3">USERS</button>
+            </Link> : null}
+            {(location.pathname !== Paths.homes)?  <Link to={Paths.homes}>
+                <button className="btn btn-success m-3">HOMES</button>
             </Link> : null}
             <LogOut />
 

@@ -13,24 +13,6 @@
   ],
   "users": [
     {
-      "firstName": "Narek",
-      "lastName": "Stepanyan11111",
-      "age": "78",
-      "email": "narst@yopmail.com",
-      "password": "45645456",
-      "confirmPassword": "4654564",
-      "id": 13
-    },
-    {
-      "firstName": "Narek",
-      "lastName": "Narek",
-      "age": "44",
-      "email": "nar999@yopmail.com",
-      "password": "123456",
-      "confirmPassword": "123456",
-      "id": 14
-    },
-    {
       "firstName": "Karen",
       "lastName": "Stepan",
       "age": "55",
@@ -38,6 +20,67 @@
       "password": "123456",
       "confirmPassword": "123456",
       "id": 15
+    },
+    {
+      "firstName": "NNNNNNNN",
+      "lastName": "Stepanyan",
+      "age": "555555",
+      "email": "nar999@yopmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 16
+    },
+    {
+      "firstName": "Stepan",
+      "lastName": "Narek",
+      "age": "555555",
+      "email": "narstep@yopmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 17
+    },
+    {
+      "firstName": "NNNNNNNN",
+      "lastName": "Stepanyan",
+      "age": "555555",
+      "email": "nar999@yopmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 19
+    }
+  ],
+  "homes": [
+    {
+      "user": "Karen  Stepan",
+      "location": "iyuyiyiu",
+      "landSqm": "45",
+      "placeSqm": "45",
+      "bedrooms": 2,
+      "id": 2
+    },
+    {
+      "user": "Karen  Stepan",
+      "location": "Japan",
+      "landSqm": "789",
+      "placeSqm": "12",
+      "bedrooms": 4,
+      "id": 6
+    },
+    {
+      "user": "Stepan  Narek",
+      "location": "Russia",
+      "landSqm": "120",
+      "placeSqm": "56",
+      "bedrooms": 7,
+      "id": 7
+    },
+    {
+      "user": "NNNNNNNN  Stepanyan",
+      "location": "Germany",
+      "landSqm": "789",
+      "placeSqm": "222",
+      "bedrooms": 2,
+      "id": 8
     }
   ]
 }

@@ -9,7 +9,7 @@ export function getUsers() {
             const result = await publicApi.get(endPoints.users);
             dispatch({type: TYPES.GET_USERS_SUCCESS, payload: result});
         } catch (e) {
-            dispatch({type: TYPES.GET_USERS_FAILURE, payload: e.response.data.statusCode});
+            dispatch({type: TYPES.GET_USERS_FAILURE, payload: e});
         }
     };
 }
