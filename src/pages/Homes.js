@@ -12,7 +12,7 @@ const Homes = () => {
     const dispatch = useDispatch();
     const data = useSelector(state => state.usersReducer.getUsers.data.data);
 
-    const users = <tbody>{data.map(obj => (
+    const homes = <tbody>{data.map(obj => (
         <tr key={obj.id}>
             <td>{obj.firstName}</td>
             <td>{obj.lastName}</td>
@@ -43,7 +43,7 @@ const Homes = () => {
                     <th scope="col">Actions</th>
                 </tr>
                 </thead>
-                {users}
+                {homes}
             </table>
         </>
     );
