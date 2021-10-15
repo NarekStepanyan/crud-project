@@ -5,11 +5,11 @@ import {Storage} from "./classStorage";
 
 const isAuth = () => Storage.get('accessToken')
 
-const PrivateRoute = ({children: Component, ...rest}) => {
+const PrivateRoute = ({render, ...rest}) => {
     return (
         <Route {...rest} render={props => (
             isAuth()?
-                <Component {...props} />
+                render()
                 : <Redirect to={Paths.logIn} />
         )} >
         </Route>

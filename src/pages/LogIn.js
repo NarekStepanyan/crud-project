@@ -68,7 +68,6 @@ const LogIn = () => {
                     Log In
                 </button>
             </form>
-            <Link to={Paths.forgot}>Forgot password</Link>
         </>
     );
 };
