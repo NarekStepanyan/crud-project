@@ -1,13 +1,11 @@
 import {Switch} from "react-router";
 import {Link, useLocation} from "react-router-dom";
 
-import PrivateRoute from "../utils/privateRoute";
 import {Paths} from "../utils/paths";
 import LogOut from "../components/LogOut";
-import Users from "./Users";
-import Homes from "./Homes";
+import RouteWithSubRoutes from "../components/RouteWithSubRoutes";
 
-const Home = () => {
+const Home = ({ routes }) => {
 
     const location = useLocation();
 
@@ -22,8 +20,9 @@ const Home = () => {
             <LogOut />
 
             <Switch>
-                <PrivateRoute children={Users} exact path={Paths.users} />
-                <PrivateRoute children={Homes} exact path={Paths.homes} />
+                {routes.map((route, i) => (
+                    <RouteWithSubRoutes key={i} {...route} />
+                ))}
             </Switch>
         </>
     );
