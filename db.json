@@ -33,20 +33,12 @@
   ],
   "homes": [
     {
-      "user": "Aram  Aramyan",
-      "location": "Romania",
-      "landSqm": "789",
-      "placeSqm": "12",
+      "user": "Movses   Movsisyan",
+      "location": "iyuyiyiu",
+      "landSqm": "45",
+      "placeSqm": "45",
       "bedrooms": 5,
-      "id": 10
-    },
-    {
-      "user": "Mary  RRRRR",
-      "location": "Poland",
-      "landSqm": "789",
-      "placeSqm": "56",
-      "bedrooms": 4,
-      "id": 11
+      "id": 12
     }
   ]
 }
