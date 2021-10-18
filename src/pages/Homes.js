@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 
 import "../App.css";
@@ -10,7 +10,23 @@ import DeleteHome from "../components/home/modals/DeleteHome";
 const Homes = () => {
 
     const dispatch = useDispatch();
+    const [addModalIsOpen, setAddModalIsOpen] = useState(false);
+    const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
+    const [editModalIsOpen, setEditModalIsOpen] = useState(false);
+    const [homeId, setHomeId] = useState(0)
     const data = useSelector(state => state.homesReducer.getHomes.data.data);
+
+    function openOrCloseAddModal() {
+        setAddModalIsOpen(!addModalIsOpen);
+    }
+    function openOrCloseDeleteModal(id) {
+        setHomeId(id);
+        setDeleteModalIsOpen(!deleteModalIsOpen);
+    };
+    function openOrCloseEditModal(id) {
+        setHomeId(id);
+        setEditModalIsOpen(!editModalIsOpen);
+    };
 
     const homes = <tbody>{data.map(obj => (
         <tr key={obj.id}>
@@ -20,8 +36,8 @@ const Homes = () => {
             <td>{obj.placeSqm}</td>
             <td>{obj.bedrooms}</td>
             <td>
-                <EditHome homeId={obj.id} />
-                <DeleteHome homeId={obj.id} />
+                <button className="btn btn-outline-warning m-3" onClick={() => openOrCloseEditModal(obj.id)}>EDIT</button>
+                <button className="btn btn-outline-danger m-3" onClick={() => openOrCloseDeleteModal(obj.id)}>DELETE</button>
             </td>
         </tr>
     ))}
@@ -31,7 +47,8 @@ const Homes = () => {
 
     return(
         <>
-            <AddHome />
+            <button className="btn btn-success m-3" onClick={openOrCloseAddModal}>ADD NEW HOME</button>
+
             <br />
             <br />
             <table className="table table-striped">
@@ -47,6 +64,18 @@ const Homes = () => {
                 </thead>
                 {homes}
             </table>
+
+            <AddHome isOpen={addModalIsOpen} toggle={openOrCloseAddModal}/>
+            <EditHome
+                homeId={homeId}
+                isOpen={editModalIsOpen}
+                toggle={openOrCloseEditModal}
+            />
+            <DeleteHome
+                homeId={homeId}
+                isOpen={deleteModalIsOpen}
+                toggle={openOrCloseDeleteModal}
+            />
         </>
     );
 }

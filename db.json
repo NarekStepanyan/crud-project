@@ -20,40 +20,33 @@
       "password": "456123",
       "confirmPassword": "456123",
       "id": 18
+    },
+    {
+      "firstName": "Movses ",
+      "lastName": "Movsisyan",
+      "age": "60",
+      "email": "ms@mm.com",
+      "password": "789789",
+      "confirmPassword": "789789",
+      "id": 20
     }
   ],
   "homes": [
-    {
-      "user": "Karen  Stepan",
-      "location": "iyuyiyiu",
-      "landSqm": "45",
-      "placeSqm": "45",
-      "bedrooms": 2,
-      "id": 2
-    },
     {
       "user": "Aram  Aramyan",
       "location": "Romania",
       "landSqm": "789",
       "placeSqm": "12",
-      "bedrooms": 4,
-      "id": 6
+      "bedrooms": 5,
+      "id": 10
     },
     {
-      "user": "Stepan  Narek",
-      "location": "Russia",
-      "landSqm": "120",
+      "user": "Mary  RRRRR",
+      "location": "Poland",
+      "landSqm": "789",
       "placeSqm": "56",
-      "bedrooms": 7,
-      "id": 7
-    },
-    {
-      "user": "Aram  Aramyan",
-      "location": "Finland",
-      "landSqm": "2000",
-      "placeSqm": "52",
-      "bedrooms": 9,
-      "id": 9
+      "bedrooms": 4,
+      "id": 11
     }
   ]
 }

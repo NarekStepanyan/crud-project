@@ -1,4 +1,3 @@
-import {useState} from "react";
 import {useFormik} from 'formik';
 import {useDispatch, useSelector} from 'react-redux';
 import Modal from 'react-modal';
@@ -8,13 +7,13 @@ import {editHome, getSingleHome, getHomes} from "../../../redux/actions/homes";
 import {editHomeValidationSchema} from "../../../utils/schemas";
 import Select from "react-select";
 import {bedrooms} from "../../../utils/bedrooms";
+import {useEffect} from "react";
 
 Modal.setAppElement('#root');
 
-const EditUser = ({homeId}) => {
+const EditHome = ({homeId, isOpen, toggle}) => {
 
     const dispatch = useDispatch();
-    const [modalIsOpen, setModalIsOpen] = useState(false);
     const homeCurrentData = useSelector(state => state.homesReducer.getSingleHome.data.data);
     const usersData = useSelector(state => state.usersReducer.getUsers.data.data);
 
@@ -24,7 +23,7 @@ const EditUser = ({homeId}) => {
         await dispatch(editHome(homeId, values));
         await dispatch(getHomes());
         resetForm();
-        setModalIsOpen(false);
+        toggle();
     }
 
     const {
@@ -42,11 +41,6 @@ const EditUser = ({homeId}) => {
         onSubmit: formikSubmit
     });
 
-    async function openOrCloseModal() {
-        setModalIsOpen(!modalIsOpen);
-        await dispatch(getSingleHome(homeId));
-    }
-
     function userSelect(event) {
         values.user = event.label;
     }
@@ -54,14 +48,19 @@ const EditUser = ({homeId}) => {
         values.bedrooms = event.value;
     }
 
+    const closeHandle = () => {
+        resetForm();
+        toggle();
+    }
+
+    useEffect(() => (isOpen && homeId)? dispatch(getSingleHome(homeId)): null,[isOpen])
+
     return (
         <>
-            <button className="btn btn-warning" onClick={openOrCloseModal}>EDIT</button>
-
             <Modal
-                isOpen={modalIsOpen}
+                isOpen={isOpen}
                 shouldCloseOnOverClick={false}
-                onRequestClose={openOrCloseModal}
+                onRequestClose={toggle}
                 style={
                     {
                         overlay: {
@@ -70,7 +69,7 @@ const EditUser = ({homeId}) => {
                     }
                 }
             >
-                <button onClick={openOrCloseModal} type="button" className="btn btn-close btn-danger topright" aria-label="Close">
+                <button onClick={closeHandle} type="button" className="btn btn-close btn-danger topright" aria-label="Close">
                     <span>&times;</span>
                 </button>
                 <br/>
@@ -138,4 +137,4 @@ const EditUser = ({homeId}) => {
     );
 }
 
-export default EditUser;
+export default EditHome;

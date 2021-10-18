@@ -1,4 +1,3 @@
-import {useState} from "react";
 import {useFormik} from 'formik';
 import {useDispatch} from 'react-redux';
 import Modal from 'react-modal';
@@ -9,16 +8,20 @@ import {addUserInitialValues, addUserValidationSchema} from "../../../utils/sche
 
 Modal.setAppElement('#root');
 
-const AddUser = () => {
+const AddUser = ({isOpen, toggle}) => {
 
     const dispatch = useDispatch();
-    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const formikSubmit = async () => {
         await dispatch(addUser(values));
         dispatch(getUsers());
         resetForm();
-        setModalIsOpen(false);
+        toggle();
+    }
+
+    const closeHandle = () => {
+        resetForm();
+        toggle();
     }
 
     const {
@@ -35,19 +38,12 @@ const AddUser = () => {
         onSubmit: formikSubmit
     });
 
-    function openOrCloseModal() {
-        setModalIsOpen(!modalIsOpen);
-        resetForm();
-    }
-
     return(
         <>
-            <button className="btn btn-primary m-3" onClick={openOrCloseModal}>ADD NEW USER</button>
-
             <Modal
-                isOpen={modalIsOpen}
+                isOpen={isOpen}
                 shouldCloseOnOverClick={false}
-                onRequestClose={openOrCloseModal}
+                onRequestClose={toggle}
                 style={
                     {
                        overlay: {
@@ -56,7 +52,7 @@ const AddUser = () => {
                     }
                 }
             >
-                <button onClick={openOrCloseModal} type="button" className="btn btn-close btn-danger topright" aria-label="Close">
+                <button onClick={closeHandle} type="button" className="btn btn-close btn-danger topright" aria-label="Close">
                     <span>&times;</span>
                 </button>
                 <br />

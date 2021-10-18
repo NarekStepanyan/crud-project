@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useFormik} from 'formik';
 import {useDispatch, useSelector} from 'react-redux';
 import Modal from 'react-modal';
@@ -12,10 +12,9 @@ import {bedrooms} from "../../../utils/bedrooms";
 
 Modal.setAppElement('#root');
 
-const AddHome = () => {
+const AddHome = ({isOpen, toggle}) => {
 
     const dispatch = useDispatch();
-    const [modalIsOpen, setModalIsOpen] = useState(false);
     const usersData = useSelector(state => state.usersReducer.getUsers.data.data);
 
     const users = usersData.map(user => ({value: user.id, label: `${user.firstName}  ${user.lastName}`}))
@@ -24,7 +23,12 @@ const AddHome = () => {
         await dispatch(addHome(values));
         await dispatch(getHomes());
         resetForm();
-        setModalIsOpen(false);
+        toggle();
+    }
+
+    const closeHandle = () => {
+        resetForm();
+        toggle();
     }
 
     const {
@@ -41,11 +45,6 @@ const AddHome = () => {
         onSubmit: formikSubmit
     });
 
-    function openOrCloseModal() {
-        setModalIsOpen(!modalIsOpen);
-        resetForm();
-    }
-
     function userSelect(event) {
         values.user = event.label;
     }
@@ -57,12 +56,11 @@ const AddHome = () => {
 
     return(
         <>
-            <button className="btn btn-success m-3" onClick={openOrCloseModal}>ADD NEW HOME</button>
 
             <Modal
-                isOpen={modalIsOpen}
+                isOpen={isOpen}
                 shouldCloseOnOverClick={false}
-                onRequestClose={openOrCloseModal}
+                onRequestClose={toggle}
                 style={
                     {
                         overlay: {
@@ -71,7 +69,7 @@ const AddHome = () => {
                     }
                 }
             >
-                <button onClick={openOrCloseModal} type="button" className="btn btn-close btn-danger topright" aria-label="Close">
+                <button onClick={closeHandle} type="button" className="btn btn-close btn-danger topright" aria-label="Close">
                     <span>&times;</span>
                 </button>
                 <br />
