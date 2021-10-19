@@ -46,6 +46,7 @@ const AddHome = ({isOpen, toggle}) => {
     });
 
     function userSelect(event) {
+        values.userId = event.value;
         values.user = event.label;
     }
     function bedroomSelect(event) {

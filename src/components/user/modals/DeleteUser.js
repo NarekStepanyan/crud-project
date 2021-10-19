@@ -1,20 +1,31 @@
+import {useEffect} from "react";
 import Modal from 'react-modal';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import "../../../App.css";
-import {deleteUser, getUsers} from "../../../redux/actions/users";;
+import {deleteUser, getUsers} from "../../../redux/actions/users";
+import {deleteHome, getHomes} from "../../../redux/actions/homes";
 
 Modal.setAppElement('#root');
 
 const DeleteUser = ({userId, isOpen, toggle}) => {
 
     const dispatch = useDispatch();
+    const homesOfUser = useSelector(state => state.homesReducer.getHomes.data.data)
+    console.log(homesOfUser)
+
+    const deleteUserHomes = async () => {
+        homesOfUser.map(home => {if(home.userId === userId) dispatch(deleteHome(home.id))});
+    }
 
     const deleteClick = async () => {
         await dispatch(deleteUser(userId));
+        await deleteUserHomes();
         await dispatch(getUsers());
         toggle();
     };
+
+    useEffect(() => dispatch(getHomes()),[]);
 
     return (
         <>

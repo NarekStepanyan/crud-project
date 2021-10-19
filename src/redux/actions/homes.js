@@ -14,6 +14,18 @@ export function getHomes() {
     };
 }
 
+export function getHomesByUserId(userId) {
+    return async function (dispatch) {
+        dispatch({type: TYPES.GET_HOMES_BYID_REQUEST});
+        try {
+            const result = await publicApi.get(`${endPoints.homes}?userId=${userId}`);
+            dispatch({type: TYPES.GET_HOMES_BYID_SUCCESS, payload: result});
+        } catch (e) {
+            dispatch({type: TYPES.GET_HOMES_BYID_FAILURE, payload: e});
+        }
+    };
+}
+
 export function getSingleHome(id) {
     return async function (dispatch) {
         dispatch({type: TYPES.GET_SINGLE_HOME_REQUEST});
