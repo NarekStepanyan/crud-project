@@ -1,4 +1,3 @@
-import {useState} from "react";
 import Modal from 'react-modal';
 import {useDispatch} from 'react-redux';
 
@@ -7,32 +6,26 @@ import {deleteHome, getHomes} from "../../../redux/actions/homes";;
 
 Modal.setAppElement('#root');
 
-const DeleteHome = ({homeId}) => {
+const DeleteHome = ({homeId, isOpen, toggle}) => {
 
     const dispatch = useDispatch();
-    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const deleteClick = async () => {
         await dispatch(deleteHome(homeId));
         await dispatch(getHomes());
-        setModalIsOpen(false);
+        toggle();
     };
-
-    function openOrCloseModal() {
-        setModalIsOpen(!modalIsOpen);
-    }
 
     return (
         <>
-            <button className="btn btn-outline-danger m-3" onClick={openOrCloseModal}>DELETE</button>
             <Modal
-                isOpen={modalIsOpen}
-                onRequestClose={openOrCloseModal}
+                isOpen={isOpen}
+                onRequestClose={toggle}
                 className="deleteModal"
                 contentLabel="Delete Modal"
             >
                 <div>Are you sure?</div>
-                <button className="btn btn-danger" onClick={openOrCloseModal}>close</button>
+                <button className="btn btn-danger" onClick={toggle}>close</button>
                 <button className="btn btn-primary" onClick={deleteClick}>Delete</button>
             </Modal>
         </>

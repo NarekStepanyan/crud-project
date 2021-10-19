@@ -1,4 +1,3 @@
-import {useState} from "react";
 import {useFormik} from 'formik';
 import {useDispatch, useSelector} from 'react-redux';
 import Modal from 'react-modal';
@@ -6,20 +5,25 @@ import Modal from 'react-modal';
 import "../../../App.css";
 import {editUser, getSingleUser, getUsers} from "../../../redux/actions/users";
 import {editUserValidationSchema} from "../../../utils/schemas";
+import {useEffect} from "react";
 
 Modal.setAppElement('#root');
 
-const EditUser = ({userId}) => {
+const EditUser = ({userId, isOpen, toggle}) => {
 
     const dispatch = useDispatch();
-    const [modalIsOpen, setModalIsOpen] = useState(false);
     const userCurrentData = useSelector(state => state.usersReducer.getSingleUser.data.data);
+
+    const closeHandle = () => {
+        resetForm();
+        toggle();
+    }
 
     const formikSubmit = async () => {
         await dispatch(editUser(userId, values));
         await dispatch(getUsers());
         resetForm();
-        setModalIsOpen(false);
+        toggle();
     }
 
     const {
@@ -37,19 +41,14 @@ const EditUser = ({userId}) => {
         onSubmit: formikSubmit
     });
 
-    async function openOrCloseModal() {
-        setModalIsOpen(!modalIsOpen);
-        await dispatch(getSingleUser(userId));
-    }
+    useEffect(() => (isOpen && userId)? dispatch(getSingleUser(userId)): null,[isOpen])
 
     return (
         <>
-            <button className="btn btn-warning" onClick={openOrCloseModal}>EDIT</button>
-
             <Modal
-                isOpen={modalIsOpen}
+                isOpen={isOpen}
                 shouldCloseOnOverClick={false}
-                onRequestClose={openOrCloseModal}
+                onRequestClose={toggle}
                 style={
                         {
                            overlay: {
@@ -58,7 +57,7 @@ const EditUser = ({userId}) => {
                         }
                 }
             >
-                <button onClick={openOrCloseModal} type="button" className="btn btn-close btn-danger topright" aria-label="Close">
+                <button onClick={closeHandle} type="button" className="btn btn-close btn-danger topright" aria-label="Close">
                     <span>&times;</span>
                 </button>
                 <br/>
