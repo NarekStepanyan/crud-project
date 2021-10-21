@@ -11,26 +11,7 @@
       "email": "ad1@admin.com"
     }
   ],
-  "users": [
-    {
-      "firstName": "Aram",
-      "lastName": "Aramyan",
-      "age": "33",
-      "email": "aram@mail.com",
-      "password": "456123",
-      "confirmPassword": "456123",
-      "id": 18
-    },
-    {
-      "firstName": "Movses ",
-      "lastName": "Movsisyan",
-      "age": "60",
-      "email": "ms@mm.com",
-      "password": "789789",
-      "confirmPassword": "789789",
-      "id": 20
-    }
-  ],
+  "users": [],
   "homes": [
     {
       "user": "Movses   Movsisyan",
@@ -39,6 +20,24 @@
       "placeSqm": "45",
       "bedrooms": 5,
       "id": 12
+    },
+    {
+      "Karen  Stepanya": "",
+      "id": 13,
+      "user": "Karen  Stepanya",
+      "location": "iyuyiyiu",
+      "landSqm": "45",
+      "placeSqm": "45",
+      "bedrooms": 4
+    },
+    {
+      "China": "",
+      "id": 14,
+      "user": "Narek  Narek",
+      "location": "Germany",
+      "landSqm": "789",
+      "placeSqm": "45",
+      "bedrooms": 4
     }
   ]
 }

@@ -1,4 +1,5 @@
 import TYPES from '../actions/types';
+import {editUserName} from "../actions/homes";
 
 const initialState = {
     loading: null,
@@ -7,6 +8,7 @@ const initialState = {
 }
 const homes = {
     getHomes: {...initialState, data: {data:[]}},
+    getHomesByUserId: {...initialState, data: {data:[]}},
     addHome: {...initialState, data: {}},
     getSingleHome: {...initialState, data: {data:{}}},
     editHome: {...initialState, data: {}},
@@ -38,6 +40,34 @@ export default function homesReducer(state = homes, action) {
                 ...state,
                 getHomes: {
                     ...homes.getHomes,
+                    loading: null,
+                    data: null,
+                    error: action.payload
+                }
+            }
+        case TYPES.GET_HOMES_BYID_REQUEST:
+            return {
+                ...state,
+                getHomesByUserId: {
+                    ...homes.getHomesByUserId,
+                    loading: true
+                }
+            }
+        case TYPES.GET_HOMES_BYID_SUCCESS:
+            return {
+                ...state,
+                getHomesByUserId: {
+                    ...homes.getHomesByUserId,
+                    loading: null,
+                    data: action.payload,
+                    error: null
+                }
+            }
+        case TYPES.GET_HOMES_BYID_FAILURE:
+            return {
+                ...state,
+                getHomesByUserId: {
+                    ...homes.getHomesByUserId,
                     loading: null,
                     data: null,
                     error: action.payload
@@ -127,6 +157,7 @@ export default function homesReducer(state = homes, action) {
                     error: action.payload
                 }
             }
+
         case TYPES.DELETE_HOME_REQUEST:
             return {
                 ...state,

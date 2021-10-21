@@ -6,6 +6,7 @@ import "../../../App.css";
 import {editUser, getSingleUser, getUsers} from "../../../redux/actions/users";
 import {editUserValidationSchema} from "../../../utils/schemas";
 import {useEffect} from "react";
+import {editHome, getHomesByUserId} from "../../../redux/actions/homes";
 
 Modal.setAppElement('#root');
 
@@ -13,7 +14,8 @@ const EditUser = ({userId, isOpen, toggle}) => {
 
     const dispatch = useDispatch();
     const userCurrentData = useSelector(state => state.usersReducer.getSingleUser.data.data);
-
+    const homesById = useSelector(state => state.homesReducer.getHomesByUserId.data.data);
+    console.log("homesById", homesById)
     const closeHandle = () => {
         resetForm();
         toggle();
@@ -21,6 +23,7 @@ const EditUser = ({userId, isOpen, toggle}) => {
 
     const formikSubmit = async () => {
         await dispatch(editUser(userId, values));
+        await changeUserName();
         await dispatch(getUsers());
         resetForm();
         toggle();
@@ -41,7 +44,19 @@ const EditUser = ({userId, isOpen, toggle}) => {
         onSubmit: formikSubmit
     });
 
-    useEffect(() => (isOpen && userId)? dispatch(getSingleUser(userId)): null,[isOpen])
+    function changeUserName()  {
+        homesById.map(data => {
+            data.user = `${values.firstName}  ${values.lastName}`;
+            dispatch(editHome(data.id, data))
+        })
+    }
+
+    function getDataEffect(userId) {
+        dispatch(getSingleUser(userId))
+        dispatch(getHomesByUserId(userId))
+    };
+
+    useEffect(() => (isOpen && userId)? getDataEffect(userId): null,[isOpen])
 
     return (
         <>
