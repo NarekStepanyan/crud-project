@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useMemo} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 
 import "../App.css";
@@ -28,7 +28,7 @@ const Users = () => {
         setEditModalIsOpen(!editModalIsOpen);
     };
 
-    const users = <tbody>{data.map(obj => (
+    const users = useMemo(() => <tbody>{data.map(obj => (
         <tr key={obj.id}>
             <td>{obj.firstName}</td>
             <td>{obj.lastName}</td>
@@ -39,7 +39,7 @@ const Users = () => {
             </td>
         </tr>
     ))}
-    </tbody>
+    </tbody>, [data])
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => dispatch(getUsers()), []);
 

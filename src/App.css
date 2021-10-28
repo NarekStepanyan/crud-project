@@ -26,6 +26,7 @@
 
 .requirement {
   color: red;
+  position: absolute;
 }
 
 .topright {
@@ -34,6 +35,8 @@
   right: 25px;
   font-size: 18px;
 }
+
+
 
 
 

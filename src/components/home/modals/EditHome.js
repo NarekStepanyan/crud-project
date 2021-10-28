@@ -52,7 +52,7 @@ const EditHome = ({homeId, isOpen, toggle}) => {
         resetForm();
         toggle();
     }
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => (isOpen && homeId)? dispatch(getSingleHome(homeId)): null,[isOpen])
 
     return (
@@ -82,8 +82,9 @@ const EditHome = ({homeId, isOpen, toggle}) => {
                         onChange={userSelect}
                         onBlur={handleBlur}
                         options={users}
+                        placeholder="User"
                     />
-                    {touched.user && errors.user && <div className="requirement"> {errors.user}</div> || <br/>}
+                    {touched.user && errors.user && <div className="requirement"> {errors.user}</div>}
                     <br/>
                     <input
                         className="form-control form-control-lgform-control form-control-sm"
@@ -95,7 +96,7 @@ const EditHome = ({homeId, isOpen, toggle}) => {
                         onBlur={handleBlur}
                         value={values.location}
                     />
-                    {touched.location && errors.location && <div className="requirement"> {errors.location}</div> || <br/>}
+                    {touched.location && errors.location && <div className="requirement"> {errors.location}</div>}
                     <br />
                     <input
                         className="form-control form-control-lgform-control form-control-sm"
@@ -107,7 +108,7 @@ const EditHome = ({homeId, isOpen, toggle}) => {
                         onBlur={handleBlur}
                         value={values.landSqm}
                     />
-                    {touched.landSqm && errors.landSqm && <div className="requirement"> {errors.landSqm}</div> || <br/>}
+                    {touched.landSqm && errors.landSqm && <div className="requirement"> {errors.landSqm}</div>}
                     <br />
                     <input
                         className="form-control form-control-lgform-control form-control-sm"
@@ -119,7 +120,7 @@ const EditHome = ({homeId, isOpen, toggle}) => {
                         onBlur={handleBlur}
                         value={values.placeSqm}
                     />
-                    {touched.placeSqm && errors.placeSqm && <div className="requirement"> {errors.placeSqm}</div> || <br/>}
+                    {touched.placeSqm && errors.placeSqm && <div className="requirement"> {errors.placeSqm}</div>}
                     <br />
                     <Select
                         id="bedrooms"
@@ -127,8 +128,9 @@ const EditHome = ({homeId, isOpen, toggle}) => {
                         onChange={bedroomSelect}
                         onBlur={handleBlur}
                         options={bedrooms}
+                        placeholder="Bedrooms"
                     />
-                    {touched.bedrooms && errors.bedrooms && <div className="requirement"> {errors.bedrooms}</div> || <br/>}
+                    {touched.bedrooms && errors.bedrooms && <div className="requirement"> {errors.bedrooms}</div>}
                     <br />
                     <button className="btn btn-warning" type="submit">CONFIRM CHANGES</button>
                 </form>

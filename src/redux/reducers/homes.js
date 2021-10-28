@@ -1,5 +1,4 @@
 import TYPES from '../actions/types';
-import {editUserName} from "../actions/homes";
 
 const initialState = {
     loading: null,

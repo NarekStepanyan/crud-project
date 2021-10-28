@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useMemo} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 
 import "../App.css";
@@ -28,7 +28,7 @@ const Homes = () => {
         setEditModalIsOpen(!editModalIsOpen);
     };
 
-    const homes = <tbody>{data.map(obj => (
+    const homes = useMemo(() => <tbody>{data.map(obj => (
         <tr key={obj.id}>
             <td>{obj.user}</td>
             <td>{obj.location}</td>
@@ -41,7 +41,7 @@ const Homes = () => {
             </td>
         </tr>
     ))}
-    </tbody>
+    </tbody>, [data])
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => dispatch(getHomes()), []);
 

@@ -52,12 +52,11 @@ const AddHome = ({isOpen, toggle}) => {
     function bedroomSelect(event) {
         values.bedrooms = event.value;
     }
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => dispatch(getUsers()),[])
 
     return(
         <>
-
             <Modal
                 isOpen={isOpen}
                 shouldCloseOnOverClick={false}
@@ -82,8 +81,9 @@ const AddHome = ({isOpen, toggle}) => {
                         onChange={userSelect}
                         onBlur={handleBlur}
                         options={users}
+                        placeholder="User"
                     />
-                    {touched.user && errors.user && <div className="requirement"> {errors.user}</div> || <br/>}
+                    {touched.user && errors.user && <div className="requirement"> {errors.user}</div>}
                     <br/>
                     <input
                         className="form-control form-control-lgform-control form-control-sm"
@@ -95,7 +95,7 @@ const AddHome = ({isOpen, toggle}) => {
                         onBlur={handleBlur}
                         value={values.location}
                     />
-                    {touched.location && errors.location && <div className="requirement"> {errors.location}</div> || <br/>}
+                    {touched.location && errors.location && <div className="requirement"> {errors.location}</div>}
                     <br />
                     <input
                         className="form-control form-control-lgform-control form-control-sm"
@@ -107,7 +107,7 @@ const AddHome = ({isOpen, toggle}) => {
                         onBlur={handleBlur}
                         value={values.landSqm}
                     />
-                    {touched.landSqm && errors.landSqm && <div className="requirement"> {errors.landSqm}</div> || <br/>}
+                    {touched.landSqm && errors.landSqm && <div className="requirement"> {errors.landSqm}</div>}
                     <br />
                     <input
                         className="form-control form-control-lgform-control form-control-sm"
@@ -119,7 +119,7 @@ const AddHome = ({isOpen, toggle}) => {
                         onBlur={handleBlur}
                         value={values.placeSqm}
                     />
-                    {touched.placeSqm && errors.placeSqm && <div className="requirement"> {errors.placeSqm}</div> || <br/>}
+                    {touched.placeSqm && errors.placeSqm && <div className="requirement"> {errors.placeSqm}</div>}
                     <br />
                     <Select
                         id="bedrooms"
@@ -127,8 +127,9 @@ const AddHome = ({isOpen, toggle}) => {
                         onChange={bedroomSelect}
                         onBlur={handleBlur}
                         options={bedrooms}
+                        placeholder="Bedrooms"
                     />
-                    {touched.bedrooms && errors.bedrooms && <div className="requirement"> {errors.bedrooms}</div> || <br/>}
+                    {touched.bedrooms && errors.bedrooms && <div className="requirement"> {errors.bedrooms}</div>}
                     <br />
                     <button className="btn btn-success" type="submit">ADD</button>
                 </form>

@@ -11,33 +11,44 @@
       "email": "ad1@admin.com"
     }
   ],
-  "users": [],
+  "users": [
+    {
+      "firstName": "Narek",
+      "lastName": "Stepanyan",
+      "age": "1111",
+      "email": "st000@yopmail.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 5
+    },
+    {
+      "firstName": "Narek",
+      "lastName": "Stepanyan",
+      "age": "1",
+      "email": "admin1@admin.com",
+      "password": "123456",
+      "confirmPassword": "123456",
+      "id": 7
+    },
+    {
+      "firstName": "Karen",
+      "lastName": "Stepanyan11111",
+      "age": "555555",
+      "email": "narst@yopmail.com",
+      "password": "456321",
+      "confirmPassword": "456321",
+      "id": 8
+    }
+  ],
   "homes": [
     {
-      "user": "Movses   Movsisyan",
-      "location": "iyuyiyiu",
+      "user": "Narek  Stepanyan",
+      "location": "Japan",
       "landSqm": "45",
-      "placeSqm": "45",
-      "bedrooms": 5,
-      "id": 12
-    },
-    {
-      "Karen  Stepanya": "",
-      "id": 13,
-      "user": "Karen  Stepanya",
-      "location": "iyuyiyiu",
-      "landSqm": "45",
-      "placeSqm": "45",
-      "bedrooms": 4
-    },
-    {
-      "China": "",
-      "id": 14,
-      "user": "Narek  Narek",
-      "location": "Germany",
-      "landSqm": "789",
-      "placeSqm": "45",
-      "bedrooms": 4
+      "placeSqm": "12",
+      "bedrooms": 3,
+      "userId": 5,
+      "id": 7
     }
   ]
 }
