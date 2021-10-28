@@ -25,8 +25,7 @@ const EditUser = ({userId, isOpen, toggle}) => {
         await dispatch(editUser(userId, values));
         await changeUserName();
         await dispatch(getUsers());
-        resetForm();
-        toggle();
+        closeHandle();
     }
 
     const {

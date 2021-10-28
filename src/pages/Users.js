@@ -39,7 +39,7 @@ const Users = () => {
             </td>
         </tr>
     ))}
-    </tbody>, [data])
+    </tbody>, [data, editModalIsOpen])
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => dispatch(getUsers()), []);
 

@@ -15,7 +15,7 @@
     {
       "firstName": "Narek",
       "lastName": "Stepanyan",
-      "age": "1111",
+      "age": "25",
       "email": "st000@yopmail.com",
       "password": "123456",
       "confirmPassword": "123456",
@@ -32,20 +32,29 @@
     },
     {
       "firstName": "Karen",
-      "lastName": "Stepanyan11111",
-      "age": "555555",
+      "lastName": "Stepanyan",
+      "age": "52",
       "email": "narst@yopmail.com",
       "password": "456321",
       "confirmPassword": "456321",
       "id": 8
+    },
+    {
+      "firstName": "Leo",
+      "lastName": "Johnson",
+      "age": "23",
+      "email": "john@jo.com",
+      "password": "232323",
+      "confirmPassword": "232323",
+      "id": 9
     }
   ],
   "homes": [
     {
       "user": "Narek  Stepanyan",
       "location": "Japan",
-      "landSqm": "45",
-      "placeSqm": "12",
+      "landSqm": "450",
+      "placeSqm": "10",
       "bedrooms": 3,
       "userId": 5,
       "id": 7
