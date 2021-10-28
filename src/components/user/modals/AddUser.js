@@ -69,7 +69,7 @@ const AddUser = ({isOpen, toggle}) => {
                         value={values.firstName}
                     />
 
-                    {touched.firstName && errors.firstName && <div className="requirement"> {errors.firstName}</div> || <br/>}
+                    {touched.firstName && errors.firstName && <div className="requirement"> {errors.firstName}</div>}
                     <br />
                     <input
                         className="form-control form-control-lgform-control form-control-sm"
@@ -81,7 +81,7 @@ const AddUser = ({isOpen, toggle}) => {
                         onBlur={handleBlur}
                         value={values.lastName}
                     />
-                    {touched.lastName && errors.lastName && <div className="requirement"> {errors.lastName}</div> || <br/>}
+                    {touched.lastName && errors.lastName && <div className="requirement"> {errors.lastName}</div>}
                     <br />
                     <input
                         className="form-control form-control-lgform-control form-control-sm"
@@ -93,7 +93,7 @@ const AddUser = ({isOpen, toggle}) => {
                         onBlur={handleBlur}
                         value={values.email}
                     />
-                    {touched.email && errors.email && <div className="requirement"> {errors.email}</div> || <br/>}
+                    {touched.email && errors.email && <div className="requirement"> {errors.email}</div>}
                     <br />
                     <input
                         className="form-control form-control-lgform-control form-control-sm"
@@ -105,7 +105,7 @@ const AddUser = ({isOpen, toggle}) => {
                         onBlur={handleBlur}
                         value={values.age}
                     />
-                    {touched.age && errors.age && <div className="requirement">{errors.age}</div> || <br/>}
+                    {touched.age && errors.age && <div className="requirement">{errors.age}</div>}
                     <br />
                     <input
                         className="form-control form-control-lgform-control form-control-sm"
@@ -117,7 +117,7 @@ const AddUser = ({isOpen, toggle}) => {
                         onBlur={handleBlur}
                         value={values.password}
                     />
-                    {touched.password && errors.password && <div className="requirement"> {errors.password}</div> || <br />}
+                    {touched.password && errors.password && <div className="requirement"> {errors.password}</div>}
                     <br />
                     <input
                         className="form-control form-control-lgform-control form-control-sm"
@@ -129,7 +129,7 @@ const AddUser = ({isOpen, toggle}) => {
                         onBlur={handleBlur}
                         value={values.confirmPassword}
                     />
-                    {touched.confirmPassword && errors.confirmPassword && <div className="requirement"> {errors.confirmPassword}</div> || <br />}
+                    {touched.confirmPassword && errors.confirmPassword && <div className="requirement"> {errors.confirmPassword}</div>}
                     <br />
                     <button className="btn btn-primary" type="submit">ADD</button>
                 </form>

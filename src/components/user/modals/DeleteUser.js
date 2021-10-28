@@ -12,10 +12,9 @@ const DeleteUser = ({userId, isOpen, toggle}) => {
 
     const dispatch = useDispatch();
     const homesOfUser = useSelector(state => state.homesReducer.getHomes.data.data)
-    console.log(homesOfUser)
 
     const deleteUserHomes = async () => {
-        homesOfUser.map(home => {if(home.userId === userId) dispatch(deleteHome(home.id))});
+        homesOfUser.map(home => {if(home.userId === userId) return dispatch(deleteHome(home.id))});
     }
 
     const deleteClick = async () => {
@@ -24,8 +23,6 @@ const DeleteUser = ({userId, isOpen, toggle}) => {
         await dispatch(getUsers());
         toggle();
     };
-
-    useEffect(() => dispatch(getHomes()),[]);
 
     return (
         <>
